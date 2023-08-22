@@ -1,4 +1,4 @@
-import {Navigate, Outlet} from "react-router-dom";
+import {Link, Navigate, Outlet} from "react-router-dom";
 import {useStateContext} from "../contexts/ContextProvider.jsx";
 
 export default function DefaultLayout() {
@@ -7,9 +7,22 @@ export default function DefaultLayout() {
         return <Navigate to="/login"/>
     }
     return (
-        <div>
-            <Outlet/>
-            DefaultLayout
+        <div id="defaultLayout">
+            <aside>
+                <Link to="/dashboard">Dashboard</Link>
+                <Link to="/users">User</Link>
+            </aside>
+            <header>
+                <div>
+                    Header
+                </div>
+                <div>
+                    User Info
+                </div>
+            </header>
+            <main>
+                <Outlet/>
+            </main>
         </div>
     )
 }
