@@ -15,6 +15,7 @@ class UserController extends Controller
      */
     public function index()
     {
+        //for paginate go video on 2.05
         return UserResource::collection(
             User::query()->orderBy('id', 'desc')->paginate(10)
         );
